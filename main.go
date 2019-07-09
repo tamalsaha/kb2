@@ -67,6 +67,14 @@ func main() {
 		setupLog.Error(err, "unable to create controller", "controller", "Guestbook")
 		os.Exit(1)
 	}
+	err = (&controllers.LaptopReconciler{
+		Client: mgr.GetClient(),
+		Log:    ctrl.Log.WithName("controllers").WithName("Laptop"),
+	}).SetupWithManager(mgr)
+	if err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Laptop")
+		os.Exit(1)
+	}
 	// +kubebuilder:scaffold:builder
 
 	setupLog.Info("starting manager")

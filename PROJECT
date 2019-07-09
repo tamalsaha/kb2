@@ -5,3 +5,6 @@ resources:
 - group: webapp
   version: v1
   kind: Guestbook
+- group: webapp
+  version: v1
+  kind: Laptop
